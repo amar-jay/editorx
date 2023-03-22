@@ -1,0 +1,98 @@
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.editor {
+  background-color: #333;
+  border-radius: 1mm;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+  animation:ease-in-out;
+  transition: ease-in-out .25s;
+  width: 50vw; 
+  height: 50vh; 
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
+.editor:active {
+  box-shadow: 5px 5px 10px #1f1f1f;
+}
+.editor div {
+  width: 100%;
+}
+
+/* width */
+.editor::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.editor::-webkit-scrollbar-track {
+  background: #444; 
+  border-radius: .5rem;
+}
+ 
+/* Handle */
+.editor::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 10cm;
+}
+
+/* Handle on hover */
+.editor::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+.debug {
+  width: 50vw; 
+  text-align: left;
+  font-size: 13px;
+  margin-top: 1rem;
+  height:15vh;
+  overflow-y: auto;
+}
+.body {
+  width: 100%;
+}
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
