@@ -8,6 +8,8 @@ import {
   ELEMENT_H1,
   ELEMENT_H2,
 } from '@udecode/plate';
+import { withStyledDraggables } from './plugins/dnd';
+import { DND_ENABLED } from '../store';
 export const components = {
   [ELEMENT_CODE_BLOCK]: CodeBlockElement,
 
@@ -48,6 +50,14 @@ export const components = {
   }),
 }
 
-export const plateUI = createPlateUI(
+let plateUI = createPlateUI(
   components
 );
+
+if (DND_ENABLED && typeof window !== 'undefined' ){
+    plateUI = withStyledDraggables(plateUI)
+
+}
+
+export {plateUI};
+

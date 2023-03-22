@@ -5,6 +5,9 @@
 import { getTEditor, useEditorRef, useEditorState, PlateId, usePlateEditorRef, usePlateEditorState, usePlateSelectors, usePlateActions, usePlateStates, createTEditor, CreatePlateEditorOptions, createPlateEditor, PluginOptions, PlatePlugin, NoInfer, createPluginFactory, PlatePluginComponent, createPlugins, AutoformatRule } from "@udecode/plate";
 import { MyEditor, MyValue, MyPlatePlugin, MyOverrideByKey } from "../types";
 
+export const ARROW = true;
+export const THEME = 'dark';
+export const DND_ENABLED =true;
 export const getMyEditor = (editor: MyEditor) =>
   getTEditor<MyValue, MyEditor>(editor);
 export const useMyEditorRef = () => useEditorRef<MyValue, MyEditor>();

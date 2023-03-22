@@ -17,6 +17,7 @@ import {
     createTrailingBlockPlugin,
     createAutoformatPlugin,
     createSelectOnBackspacePlugin} from "@udecode/plate";
+import {createDndPlugin} from '@udecode/plate-ui'
 import { plateUI } from "./components";
 import { autoformatOptions, exitBreakOptions, selectOnBackspaceOptions, softBreakOptions, trailingBlockOptions } from "./options";
 
@@ -58,6 +59,7 @@ export const plugins = createPlugins(
         createTrailingBlockPlugin(trailingBlockOptions),
         createAutoformatPlugin(autoformatOptions),
         createSelectOnBackspacePlugin(selectOnBackspaceOptions),
+          createDndPlugin({ options: { enableScroller: true } }),
 ],
     {
         components: plateUI,

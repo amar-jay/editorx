@@ -11,12 +11,15 @@ import {
   MarkToolbarButton,
   WithPartial,
 } from '@udecode/plate';
-import { useMyPlateEditorRef } from './store';
+import { useMyPlateEditorRef,
+  ARROW,
+  THEME,
+ } from '../store';
 
 export const markTooltip: TippyProps = {
-  arrow: true,
+  arrow: ARROW,
   delay: 0,
-  duration: [200, 0],
+  duration: [0, 0],
   hideOnClick: false,
   offset: [0, 17],
   placement: 'top',
@@ -28,35 +31,37 @@ export const MarkBalloonToolbar = (props: WithPartial<BalloonToolbarProps, 'chil
     ...balloonToolbarProps
   } = props;
 
-  const editor = useMyPlateEditorRef();
+   const editor = useMyPlateEditorRef();
 
-  const arrow = false;
-  const theme = 'dark';
 
-  const boldTooltip: TippyProps = { content: 'Bold (⌘+B)', ...markTooltip };
-  const italicTooltip: TippyProps = { content: 'Italic (⌘+I)', ...markTooltip };
+
+  const boldTooltip: TippyProps = { content: 'Bold', ...markTooltip };
+  const italicTooltip: TippyProps = { content: 'Italic', ...markTooltip };
   const underlineTooltip: TippyProps = {
-    content: 'Underline (⌘+U)',
+    content: 'Underline',
     ...markTooltip,
   };
 
   return (
-    <BalloonToolbar theme={theme} arrow={arrow} {...balloonToolbarProps}>
+    <BalloonToolbar theme={THEME} arrow={ARROW} {...balloonToolbarProps}>
       <MarkToolbarButton
         type={getPluginType(editor, MARK_BOLD)}
-        icon={<MdFormatBold />}
+        icon={<MdFormatBold className="tooltip-icon"/>}
         tooltip={boldTooltip}
         actionHandler="onMouseDown"
-      />
+      /> 
+ 
+
+  
       <MarkToolbarButton
         type={getPluginType(editor, MARK_ITALIC)}
-        icon={<MdFormatItalic />}
+        icon={<MdFormatItalic  className="tooltip-icon"/>}
         tooltip={italicTooltip}
         actionHandler="onMouseDown"
       />
       <MarkToolbarButton
         type={getPluginType(editor, MARK_UNDERLINE)}
-        icon={<MdFormatUnderlined />}
+        icon={<MdFormatUnderlined  className="tooltip-icon"/>}
         tooltip={underlineTooltip}
         actionHandler="onMouseDown"
       />
