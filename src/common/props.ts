@@ -6,18 +6,19 @@ import {
     createParagraphPlugin,
     createPlugins,
     createUnderlinePlugin,
-    ELEMENT_H1,
-    ELEMENT_H2,
     TEditableProps,
-    Value } from "@udecode/plate";
-import {
-  CodeBlockElement,
-  createPlateUI,
-  ELEMENT_CODE_BLOCK,
-  ELEMENT_PARAGRAPH,
-  StyledElement,
-  withProps,
-} from '@udecode/plate';
+    createCodeBlockPlugin,
+    createItalicPlugin,
+    createSubscriptPlugin,
+    createSuperscriptPlugin,
+    createExitBreakPlugin,
+    createSoftBreakPlugin,
+    createListPlugin,
+    createTrailingBlockPlugin,
+    createAutoformatPlugin,
+    createSelectOnBackspacePlugin} from "@udecode/plate";
+import { plateUI } from "./components";
+import { autoformatOptions, exitBreakOptions, selectOnBackspaceOptions, softBreakOptions, trailingBlockOptions } from "./options";
 
 
 export const editableProps:IEditableProps = {
@@ -26,43 +27,6 @@ export const editableProps:IEditableProps = {
     autoFocus: false
 }  
 
-export const plateUI = createPlateUI({
-  [ELEMENT_CODE_BLOCK]: CodeBlockElement,
-  [ELEMENT_H1]: withProps(StyledElement, {
-    styles: {
-      root: {
-        margin: '1rem 0',
-//        textDecoration: 'underline',
-        fontSize: '1.875em',
-        fontWeight: '500',
-        lineHeight: '1.3',
-      },
-    },
-    }),
-
-  [ELEMENT_H2]: withProps(StyledElement, {
-    styles: {
-      root: {
-        margin: '1rem 0',
-        textDecoration: 'underline',
-        fontSize: '1.3em',
-        fontWeight: '500',
-        lineHeight: '1.3',
-      },
-    },
-    }),
-  [ELEMENT_PARAGRAPH]: withProps(StyledElement, {
-    // as: 'p',
-    styles: {
-      root: {
-        margin: 0,
-        padding: '4px 0',
-        color: '#111',
-      },
-    },
-    prefixClassNames: 'p',
-  }),
-});
 
 let id = 0;
 
@@ -74,13 +38,27 @@ export const mapNodeId = (nodes: any) =>
 
 export const plugins = createPlugins(
     [
-        createBoldPlugin(),
         createHeadingPlugin(),
-        createUnderlinePlugin(),
         createParagraphPlugin(),
-        createCodePlugin(), // TODO: pass element as a plugin
         createBlockquotePlugin(),
-    ],
+        createCodeBlockPlugin(),
+        createListPlugin(),
+
+        createBoldPlugin(),
+        createItalicPlugin(),
+        createUnderlinePlugin(),
+        createSubscriptPlugin(),
+        createSuperscriptPlugin(),
+        createCodePlugin(), // TODO: pass element as a plugin
+        
+
+        // actions
+        createExitBreakPlugin(exitBreakOptions),
+        createSoftBreakPlugin(softBreakOptions),
+        createTrailingBlockPlugin(trailingBlockOptions),
+        createAutoformatPlugin(autoformatOptions),
+        createSelectOnBackspacePlugin(selectOnBackspaceOptions),
+],
     {
         components: plateUI,
     }

@@ -285,3 +285,50 @@ export type MyRootBlock =
 
 export type MyValue = MyRootBlock[];
 
+/**
+ * Editor types
+ */
+
+export type MyEditor = PlateEditor<MyValue> & { isDragging?: boolean };
+export type MyReactEditor = TReactEditor<MyValue>;
+export type MyNode = ENode<MyValue>;
+export type MyNodeEntry = ENodeEntry<MyValue>;
+export type MyElement = EElement<MyValue>;
+export type MyElementEntry = EElementEntry<MyValue>;
+export type MyText = EText<MyValue>;
+export type MyTextEntry = ETextEntry<MyValue>;
+export type MyElementOrText = EElementOrText<MyValue>;
+export type MyDescendant = EDescendant<MyValue>;
+export type MyMarks = EMarks<MyValue>;
+export type MyMark = keyof MyMarks;
+
+/**
+ * Plate types
+ */
+
+export type MyDecorate<P = PluginOptions> = Decorate<P, MyValue, MyEditor>;
+export type MyDecorateEntry = DecorateEntry<MyValue>;
+export type MyDOMHandler<P = PluginOptions> = DOMHandler<P, MyValue, MyEditor>;
+export type MyInjectComponent = InjectComponent<MyValue>;
+export type MyInjectProps = InjectProps<MyValue>;
+export type MyKeyboardHandler<P = PluginOptions> = KeyboardHandler<
+  P,
+  MyValue,
+  MyEditor
+>;
+export type MyOnChange<P = PluginOptions> = OnChange<P, MyValue, MyEditor>;
+export type MyOverrideByKey = OverrideByKey<MyValue, MyEditor>;
+export type MyPlatePlugin<P = PluginOptions> = PlatePlugin<
+  P,
+  MyValue,
+  MyEditor
+>;
+export type MyPlatePluginInsertData = PlatePluginInsertData<MyValue>;
+export type MyPlatePluginProps = PlatePluginProps<MyValue>;
+export type MyPlateProps = PlateProps<MyValue, MyEditor>;
+export type MySerializeHtml = SerializeHtml<MyValue>;
+export type MyWithOverride<P = PluginOptions> = WithOverride<
+  P,
+  MyValue,
+  MyEditor
+>;

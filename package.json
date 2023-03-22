@@ -9,15 +9,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@udecode/plate": "^20.4.0",
+    "@tippyjs/react": "^4.2.6",
+    "@udecode/plate": "^20.4.1",
     "@udecode/plate-test-utils": "^13.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.8.0",
     "slate": "^0.91.4",
     "slate-history": "^0.86.0",
     "slate-hyperscript": "^0.77.0",
     "slate-react": "^0.92.0",
-    "styled-components": "^5.3.9"
+    "styled-components": "^5.3.9",
+    "zustand": "^4.3.6"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
