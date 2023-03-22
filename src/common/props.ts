@@ -17,7 +17,7 @@ import {
     createTrailingBlockPlugin,
     createAutoformatPlugin,
     createSelectOnBackspacePlugin} from "@udecode/plate";
-import {createDndPlugin} from '@udecode/plate-ui'
+import {createDndPlugin} from '@udecode/plate-ui-dnd'
 import { plateUI } from "./components";
 import { autoformatOptions, exitBreakOptions, selectOnBackspaceOptions, softBreakOptions, trailingBlockOptions } from "./options";
 
