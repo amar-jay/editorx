@@ -1,5 +1,6 @@
 import Tippy, { TippyProps } from '@tippyjs/react';
 import {
+    DefaultPlatePluginKey,
   ELEMENT_BLOCKQUOTE,
   ELEMENT_CODE_BLOCK,
   ELEMENT_H1,
@@ -11,10 +12,12 @@ import {
   ELEMENT_IMAGE,
   ELEMENT_MEDIA_EMBED,
   ELEMENT_OL,
+
   ELEMENT_PARAGRAPH,
   ELEMENT_TABLE,
   ELEMENT_TODO_LI,
   ELEMENT_UL,
+  PlatePluginComponent,
 } from '@udecode/plate';
 import { withPlateDraggables } from '@udecode/plate-ui-dnd';
 
@@ -28,10 +31,12 @@ const styles = {
   },
 };
 
-const GrabberTooltipContent = () => (
-  <div style={styles.grabber}>
+const GrabberTooltipContent = () => 
+  (
+  <div>
     <div>
-      Drag <span style={styles.grabberText}>to move</span>
+      Drag <span 
+      style={styles.grabberText}>to move</span>
     </div>
   </div>
 );
@@ -47,7 +52,7 @@ export const grabberTooltipProps: TippyProps = {
   theme: 'small',
 };
 
-export const withStyledDraggables = (components: any) => {
+export const withStyledDraggables = (components:  Record<DefaultPlatePluginKey, PlatePluginComponent<any>>) => {
   return withPlateDraggables(components, [
     {
       keys: [ELEMENT_PARAGRAPH, ELEMENT_UL, ELEMENT_OL],
@@ -76,7 +81,9 @@ export const withStyledDraggables = (components: any) => {
           return (
             <Tippy {...grabberTooltipProps}>
               <button type="button" className="drag-button">
-                <DragIndicator style={styles.dragButton} />
+                <div 
+            //      DragIndicator
+                  style={styles.dragButton} />
               </button>
             </Tippy>
           );

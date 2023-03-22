@@ -1,5 +1,4 @@
-import React, { ReactNode } from 'react';
-import { MdFormatBold, MdFormatItalic, MdFormatUnderlined } from 'react-icons/md';
+//import { MdFormatBold, MdFormatItalic, MdFormatUnderlined } from 'react-icons/md';
 import { TippyProps } from '@tippyjs/react';
 import {
   BalloonToolbar,
@@ -10,6 +9,8 @@ import {
   MARK_UNDERLINE,
   MarkToolbarButton,
   WithPartial,
+  MARK_CODE,
+  MARK_STRIKETHROUGH,
 } from '@udecode/plate';
 import { useMyPlateEditorRef,
   ARROW,
@@ -23,6 +24,26 @@ export const markTooltip: TippyProps = {
   hideOnClick: false,
   offset: [0, 17],
   placement: 'top',
+//  className: 'tooltip',
+};
+
+export const tooltipStyle = {
+  icon: {
+    display: 'inline-block',
+    fontSize: '18px',
+    color: '#999',
+//    zIndex: 9999,
+  },
+  strikethrough: {
+    textDecoration: 'line-through',
+    display: 'inline-block',
+    fontSize: '18px',
+    color: '#999',
+  },
+  tip: {
+    color: "#000",
+    backgroundColor: '#ccc',
+  }
 };
 
 export const MarkBalloonToolbar = (props: WithPartial<BalloonToolbarProps, 'children'>) => {
@@ -46,25 +67,64 @@ export const MarkBalloonToolbar = (props: WithPartial<BalloonToolbarProps, 'chil
     <BalloonToolbar theme={THEME} arrow={ARROW} {...balloonToolbarProps}>
       <MarkToolbarButton
         type={getPluginType(editor, MARK_BOLD)}
-        icon={<MdFormatBold className="tooltip-icon"/>}
+        icon={
+          <h1 style={tooltipStyle.icon} >B
+          {/*<MdFormatBold
+                style={tooltipStyle.icon}  className="tooltip-icon"/>*/}
+          </h1>
+        }
         tooltip={boldTooltip}
         actionHandler="onMouseDown"
       /> 
- 
-
   
       <MarkToolbarButton
         type={getPluginType(editor, MARK_ITALIC)}
-        icon={<MdFormatItalic  className="tooltip-icon"/>}
+        icon={
+          <h1 style={tooltipStyle.icon} >I
+          {/*<MdFormatItalic 
+                style={tooltipStyle.icon}  className="tooltip-icon"/>*/}
+          </h1>
+        }
         tooltip={italicTooltip}
         actionHandler="onMouseDown"
       />
       <MarkToolbarButton
         type={getPluginType(editor, MARK_UNDERLINE)}
-        icon={<MdFormatUnderlined  className="tooltip-icon"/>}
+        icon={
+          <h1 style={tooltipStyle.icon} 
+          >U
+          {/*<MdFormatUnderlined 
+                style={tooltipStyle.icon}  className="tooltip-icon"/>*/}
+          </h1>
+        }
+
         tooltip={underlineTooltip}
         actionHandler="onMouseDown"
       />
+      <MarkToolbarButton
+        type={getPluginType(editor, MARK_STRIKETHROUGH)}
+        icon={
+          <h1 style={tooltipStyle.strikethrough} >S
+          {/*<MdFormatItalic 
+                style={tooltipStyle.icon}  className="tooltip-icon"/>*/}
+          </h1>
+        }
+        tooltip={italicTooltip}
+        actionHandler="onMouseDown"
+      />
+      <MarkToolbarButton
+        type={getPluginType(editor, MARK_CODE)}
+        icon={
+          <h1 style={tooltipStyle.icon} >{'<>'}
+          {/*<MdFormatItalic 
+                style={tooltipStyle.icon}  className="tooltip-icon"/>*/}
+          </h1>
+        }
+        tooltip={italicTooltip}
+        actionHandler="onMouseDown"
+      />
+
+
       {children}
     </BalloonToolbar>
   );

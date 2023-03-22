@@ -9,7 +9,7 @@ import {
   ELEMENT_H2,
 } from '@udecode/plate';
 import { withStyledDraggables } from './plugins/dnd';
-import { DND_ENABLED } from '../store';
+import { DND_ENABLED } from './store';
 export const components = {
   [ELEMENT_CODE_BLOCK]: CodeBlockElement,
 

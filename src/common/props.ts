@@ -17,14 +17,13 @@ import {
     createTrailingBlockPlugin,
     createAutoformatPlugin,
     createSelectOnBackspacePlugin} from "@udecode/plate";
-import {createDndPlugin} from '@udecode/plate-ui-dnd'
 import { plateUI } from "./components";
 import { autoformatOptions, exitBreakOptions, selectOnBackspaceOptions, softBreakOptions, trailingBlockOptions } from "./options";
 
 
 export const editableProps:IEditableProps = {
     placeholder: "Enter Text here",
-    spellCheck: true,
+    spellCheck: false,
     autoFocus: false
 }  
 
@@ -59,7 +58,7 @@ export const plugins = createPlugins(
         createTrailingBlockPlugin(trailingBlockOptions),
         createAutoformatPlugin(autoformatOptions),
         createSelectOnBackspacePlugin(selectOnBackspaceOptions),
-          createDndPlugin({ options: { enableScroller: true } }),
+        //  createDndPlugin({ options: { enableScroller: true } }),
 ],
     {
         components: plateUI,

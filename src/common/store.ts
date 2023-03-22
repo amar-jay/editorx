@@ -7,7 +7,7 @@ import { MyEditor, MyValue, MyPlatePlugin, MyOverrideByKey } from "../types";
 
 export const ARROW = true;
 export const THEME = 'dark';
-export const DND_ENABLED =true;
+export const DND_ENABLED = false;
 export const getMyEditor = (editor: MyEditor) =>
   getTEditor<MyValue, MyEditor>(editor);
 export const useMyEditorRef = () => useEditorRef<MyValue, MyEditor>();
