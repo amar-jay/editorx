@@ -1,7 +1,7 @@
 import React from 'react';
-import { options, useStore } from './store';
+import { EditorState, options, useStore } from './store';
  import { shallow } from 'zustand/shallow';
-import { EditorState } from './store';
+//import { EditorState } from './store';
 import './Settings.css';
 
 // this is the settings component, it should hover over the editor and allow the user to change the settings
@@ -21,9 +21,9 @@ export const Settings:React.FC<{toggleSettings: ()=>void}> = ({toggleSettings}) 
                 {
                     (Object.keys(state) as any[]).map((key: keyof typeof state, idx) => {
                         if (key.startsWith("toggle")) {
-                            let k = key.slice(6);
+                            let k = key.slice(6) as keyof EditorState;
                             return (
-                                <li key={idx} className={state[k] ? 'enabled': ""} onClick={()=>state[key](state[k])}>toggle {k}</li>
+                                <li key={idx} className={state[k] ? 'enabled': ""} onClick={()=>typeof state[key] === "function" && (state[key] as ((f:any)=>void))(state[k])}>toggle {k}</li>
                             )
                         }
                         return <></>
@@ -42,13 +42,14 @@ export const Settings:React.FC<{toggleSettings: ()=>void}> = ({toggleSettings}) 
                                 <li  key={idx} className='multiple-item'>
                                     {key} {"   "}
                                     {options[key].map((option) => {
-                                        return <span  key={idx} onClick={() => state["set" + key](option)} className={state[key]===option?"enabled":""}>{option}</span>
+                                        return <span  key={idx} onClick={() => (state[("set" + key) as keyof EditorState] as any)(option)} className={state[key]===option?"enabled":""}>{option}</span>
                                     })}
                                 </li>
                             )
                         }
                     })
                 }
+
             {/* <li className='enabled'>Dark mode</li>
             <li className='enabled'>Word Wrap</li>
             <li className='enabled'>Drag and Drop</li>
