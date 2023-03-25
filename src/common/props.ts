@@ -18,6 +18,7 @@ import {
     createTrailingBlockPlugin,
     createAutoformatPlugin,
     createFontFamilyPlugin,
+    createCommentsPlugin,
     createSelectOnBackspacePlugin} from "@udecode/plate";
 import { plateUI } from "./components";
 import { autoformatOptions, exitBreakOptions, fontFamilyOptions, selectOnBackspaceOptions, softBreakOptions, trailingBlockOptions } from "./options";
@@ -54,7 +55,6 @@ export const plugins = createPlugins(
         createSubscriptPlugin(),
         createSuperscriptPlugin(),
         createCodePlugin(), // TODO: pass element as a plugin
-        createFontFamilyPlugin(fontFamilyOptions),
         
 
         // actions
@@ -63,10 +63,9 @@ export const plugins = createPlugins(
         createTrailingBlockPlugin(trailingBlockOptions),
         createAutoformatPlugin(autoformatOptions),
         createSelectOnBackspacePlugin(selectOnBackspaceOptions),
-        //  createDndPlugin({ options: { enableScroller: true } }),
-
-        // custom
+        // other
         createFontFamilyPlugin(fontFamilyOptions),
+        createCommentsPlugin()
 ],
     {
         components: plateUI,

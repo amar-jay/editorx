@@ -5,11 +5,16 @@ import {
   ELEMENT_PARAGRAPH,
   StyledElement,
   withProps,
+  PlateCommentLeaf,
   ELEMENT_H1,
   ELEMENT_H2,
+  MARK_COMMENT,
+  MARK_FONT_SIZE,
 } from '@udecode/plate';
 import { withStyledDraggables } from './plugins/dnd';
 import { DND_ENABLED } from './store';
+
+
 export const components = {
   [ELEMENT_CODE_BLOCK]: CodeBlockElement,
 
@@ -51,6 +56,14 @@ export const components = {
     },
     prefixClassNames: 'p',
   }),
+  [MARK_COMMENT]: PlateCommentLeaf,
+  [MARK_FONT_SIZE]: withProps(StyledElement, {
+    styles: {
+      root: {
+        fontSize: '1.3em',
+      },
+    },
+    }),
 }
 
 let plateUI = createPlateUI(

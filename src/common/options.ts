@@ -37,7 +37,7 @@ import {
   KEYS_HEADING, 
   PlatePlugin,
   SoftBreakPlugin,
-  TrailingBlockPlugin
+  TrailingBlockPlugin,
 } from '@udecode/plate';
 
 /** Options for hard quiting of editor <Ctrl-S-Enter> / <Ctrl-Enter> */
@@ -85,12 +85,7 @@ export const trailingBlockOptions: Partial<PlatePlugin<TrailingBlockPlugin>> = {
   },
 };
 
-/** Options for font family */
-export const fontFamilyOptions = {
-  options: {
-    type: [ELEMENT_PARAGRAPH, ELEMENT_H1, ELEMENT_H2, ELEMENT_H3, ELEMENT_BLOCKQUOTE ],
-  },
-};
+
 export const selectOnBackspaceOptions: Partial<
   PlatePlugin<SelectOnBackspacePlugin>
 > = {
@@ -254,5 +249,10 @@ export const autoformatOptions: Partial<PlatePlugin<AutoformatPlugin>> = {
     rules: autoformatRules,
    enableUndoOnDelete: true
   }
-
 }
+/** Options for **font family** */
+export const fontFamilyOptions = {
+  options: {
+    type: [ELEMENT_PARAGRAPH, ELEMENT_H1, ELEMENT_H2, ELEMENT_H3, ELEMENT_BLOCKQUOTE ],
+  },
+};

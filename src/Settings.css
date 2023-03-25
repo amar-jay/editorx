@@ -12,13 +12,15 @@
   padding-right: 1rem;
   padding-bottom: 1rem;
   transition: ease-in-out .25s;
-  width: 50vw; 
-  height: 50vh; 
+  width: 70vw; 
+  height: 70vh; 
   overflow-y: auto;
   overflow-x: hidden;
 }
 
 .enabled {
+    padding-left: 5px;
+    padding-right: 5px;
     background-color: var(--enabled-color);
 }
 .enabled:hover {

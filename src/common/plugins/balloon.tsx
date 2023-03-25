@@ -11,6 +11,7 @@ import {
   WithPartial,
   MARK_CODE,
   MARK_STRIKETHROUGH,
+  PlateCommentToolbarButton,
 } from '@udecode/plate';
 import { useMyPlateEditorRef,
   ARROW,
@@ -28,14 +29,31 @@ export const markTooltip: TippyProps = {
 };
 
 export const tooltipStyle = {
-  icon: {
+  bold: {
+    fontWeight: '900',
     display: 'inline-block',
     fontSize: '18px',
     color: '#999',
-//    zIndex: 9999,
+  },
+  italic: {
+    fontStyle: 'italic',
+    display: 'inline-block',
+    fontSize: '18px',
+    color: '#999',
+  },
+  underline: {
+    textDecoration: 'underline',
+    display: 'inline-block',
+    fontSize: '18px',
+    color: '#999',
   },
   strikethrough: {
     textDecoration: 'line-through',
+    display: 'inline-block',
+    fontSize: '18px',
+    color: '#999',
+  },
+  icon: {
     display: 'inline-block',
     fontSize: '18px',
     color: '#999',
@@ -46,9 +64,10 @@ export const tooltipStyle = {
   }
 };
 
-export const MarkBalloonToolbar = (props: WithPartial<BalloonToolbarProps, 'children'>) => {
+export const MarkBalloonToolbar = (props: WithPartial<BalloonToolbarProps, 'children'> & {displayComments: boolean}) => {
   const {
     children,
+    displayComments,
     ...balloonToolbarProps
   } = props;
 
@@ -68,7 +87,7 @@ export const MarkBalloonToolbar = (props: WithPartial<BalloonToolbarProps, 'chil
       <MarkToolbarButton
         type={getPluginType(editor, MARK_BOLD)}
         icon={
-          <h1 style={tooltipStyle.icon} >B
+          <h1 style={tooltipStyle.bold} >B
           {/*<MdFormatBold
                 style={tooltipStyle.icon}  className="tooltip-icon"/>*/}
           </h1>
@@ -80,7 +99,7 @@ export const MarkBalloonToolbar = (props: WithPartial<BalloonToolbarProps, 'chil
       <MarkToolbarButton
         type={getPluginType(editor, MARK_ITALIC)}
         icon={
-          <h1 style={tooltipStyle.icon} >I
+          <h1 style={tooltipStyle.italic} >I
           {/*<MdFormatItalic 
                 style={tooltipStyle.icon}  className="tooltip-icon"/>*/}
           </h1>
@@ -91,7 +110,7 @@ export const MarkBalloonToolbar = (props: WithPartial<BalloonToolbarProps, 'chil
       <MarkToolbarButton
         type={getPluginType(editor, MARK_UNDERLINE)}
         icon={
-          <h1 style={tooltipStyle.icon} 
+          <h1 style={tooltipStyle.underline} 
           >U
           {/*<MdFormatUnderlined 
                 style={tooltipStyle.icon}  className="tooltip-icon"/>*/}
@@ -115,7 +134,7 @@ export const MarkBalloonToolbar = (props: WithPartial<BalloonToolbarProps, 'chil
       <MarkToolbarButton
         type={getPluginType(editor, MARK_CODE)}
         icon={
-          <h1 style={tooltipStyle.icon} >{'<>'}
+          <h1 style={tooltipStyle.bold} >{'<>'}
           {/*<MdFormatItalic 
                 style={tooltipStyle.icon}  className="tooltip-icon"/>*/}
           </h1>
@@ -123,6 +142,17 @@ export const MarkBalloonToolbar = (props: WithPartial<BalloonToolbarProps, 'chil
         tooltip={italicTooltip}
         actionHandler="onMouseDown"
       />
+      {
+        displayComments && (
+          <PlateCommentToolbarButton
+            icon={
+              <h1 style={tooltipStyle.icon} >{'{...}'}
+              </h1>
+            }
+            actionHandler="onMouseDown"
+          />
+        )
+      }
 
 
       {children}

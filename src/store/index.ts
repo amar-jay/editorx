@@ -1,6 +1,7 @@
 import { Value } from '@udecode/plate';
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
+import {jsxInitialValue, initialValue} from '../common/initial';
 
 /*
  * # States to create
@@ -24,12 +25,15 @@ import { devtools, persist } from 'zustand/middleware';
 */
 
 // -- types --
-type Theme = 'light' | 'dark';
-type Language = 'en' | 'tr' | 'fr';
+type Theme = (typeof options.theme)[number];
+type Language = (typeof options.language)[number];
 type DND = boolean;
+type Bubble = boolean;
+type Comment = boolean;
+type Toolbar = boolean;
 type Session = string | null;
 type FontSize = number;
-type FontFamily = "serif" | "monospace" | "sans-serif";
+type FontFamily = (typeof options.fontFamily)[number];
 type ImageStorage = null | string[];
 type TextStorage = string;
 type Shortcuts = {
@@ -52,15 +56,28 @@ type Shortcuts = {
 };
 
 
+export const options = {
+    theme: ['dark', 'light'],
+    language: ['en', 'tr', 'fr'],
+    fontFamily: ['sans-serif', 'serif', 'monospace'],
+} as const
+
 export interface EditorState {
     theme: Theme;
-    DND: DND;
+    // DND: DND;
+    bubble: Bubble;
+    comments: Comment;
+    toolbar: Toolbar;
     language: Language;
     session: Session;
     fontSize: FontSize;
     fontFamily: FontFamily;
     settheme: (isDark: Theme) => void;
     toggleDND: (isDND: DND) => void;
+    togglebubble: (isbubble: Bubble) => void;
+    togglecomments: (iscomments: Bubble) => void;
+    toggletoolbar: (istoolbar: Toolbar) => void;
+
     setlanguage: (language: Language) => void;
     setsession: (session: Session) => void;
     setfontSize: (fontSize: FontSize) => void;
@@ -70,6 +87,9 @@ export interface EditorState {
 export const useStore = create<EditorState>((set) => ({
     theme: 'light',
     language: 'en',
+    bubble: false,
+    toolbar: true,
+    comments: false,
     session: null,
     DND: false,
     fontSize: 16,
@@ -77,6 +97,15 @@ export const useStore = create<EditorState>((set) => ({
 //    settheme: (theme) => set({ theme: theme!=="dark" ? 'dark': 'light' }),
     settheme: (theme) => set({ theme }),
     toggleDND: (dnd) => set({ DND: !dnd }),
+    togglebubble: (isbubble) => {
+        set({ bubble: !isbubble });
+    },
+    togglecomments: (iscomments) => {
+        set({ comments: !iscomments });
+    },
+    toggletoolbar: (istoolbar) => {
+        set({ toolbar: !istoolbar });
+    },
     setlanguage: (language) => set({ language }),
     setsession: (session) => set({ session }),
     setfontSize: (fontSize) => set({ fontSize }),
@@ -98,7 +127,7 @@ interface PersistedEditorState {
 export const usePersistedStore = create<PersistedEditorState>()( devtools(
         persist(
             (set) => ({
-                textStorage: "",
+                textStorage: JSON.stringify(initialValue),
                 imageStorage: [],
                 shortcuts: {
                     headings: {
