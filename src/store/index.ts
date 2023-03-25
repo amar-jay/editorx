@@ -1,7 +1,6 @@
-import { Value } from '@udecode/plate';
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
-import {jsxInitialValue, initialValue} from '../common/initial';
+import {initialValue} from '../common/initial';
 
 /*
  * # States to create
@@ -64,7 +63,7 @@ export const options = {
 
 export interface EditorState {
     theme: Theme;
-    // DND: DND;
+    DND: DND;
     bubble: Bubble;
     comments: Comment;
     toolbar: Toolbar;
