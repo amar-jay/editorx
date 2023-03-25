@@ -24,6 +24,7 @@ import {
   unwrapList,
   SelectOnBackspacePlugin,
   ELEMENT_HR,
+  ELEMENT_H1,
 } from "@udecode/plate"
 import {
     AutoformatPlugin,
@@ -84,6 +85,12 @@ export const trailingBlockOptions: Partial<PlatePlugin<TrailingBlockPlugin>> = {
   },
 };
 
+/** Options for font family */
+export const fontFamilyOptions = {
+  options: {
+    type: [ELEMENT_PARAGRAPH, ELEMENT_H1, ELEMENT_H2, ELEMENT_H3, ELEMENT_BLOCKQUOTE ],
+  },
+};
 export const selectOnBackspaceOptions: Partial<
   PlatePlugin<SelectOnBackspacePlugin>
 > = {
@@ -125,13 +132,25 @@ export const formatList = (editor: PlateEditor, elementType: string) => {
 export const autoformatRules: AutoformatRule[] = [
   {
     match: '# ',
-    type: ELEMENT_H2,
+    type: ELEMENT_H1,
     mode: 'block',
     preFormat,
   },
   {
     match: '## ',
+    type: ELEMENT_H2,
+    mode: 'block',
+    preFormat,
+  },
+  {
+    match: '### ',
     type: ELEMENT_H3,
+    mode: 'block',
+    preFormat,
+  },
+  {
+    match: '---',
+    type: ELEMENT_HR,
     mode: 'block',
     preFormat,
   },

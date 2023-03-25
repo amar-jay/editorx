@@ -11,14 +11,17 @@ import {
     createItalicPlugin,
     createSubscriptPlugin,
     createSuperscriptPlugin,
+    createHorizontalRulePlugin,
     createExitBreakPlugin,
     createSoftBreakPlugin,
     createListPlugin,
     createTrailingBlockPlugin,
     createAutoformatPlugin,
+    createFontFamilyPlugin,
     createSelectOnBackspacePlugin} from "@udecode/plate";
 import { plateUI } from "./components";
-import { autoformatOptions, exitBreakOptions, selectOnBackspaceOptions, softBreakOptions, trailingBlockOptions } from "./options";
+import { autoformatOptions, exitBreakOptions, fontFamilyOptions, selectOnBackspaceOptions, softBreakOptions, trailingBlockOptions } from "./options";
+//import {  } from "./plugins/fontfamily";
 
 
 export const editableProps:IEditableProps = {
@@ -43,6 +46,7 @@ export const plugins = createPlugins(
         createBlockquotePlugin(),
         createCodeBlockPlugin(),
         createListPlugin(),
+        createHorizontalRulePlugin(),
 
         createBoldPlugin(),
         createItalicPlugin(),
@@ -50,6 +54,7 @@ export const plugins = createPlugins(
         createSubscriptPlugin(),
         createSuperscriptPlugin(),
         createCodePlugin(), // TODO: pass element as a plugin
+        createFontFamilyPlugin(fontFamilyOptions),
         
 
         // actions
@@ -59,6 +64,9 @@ export const plugins = createPlugins(
         createAutoformatPlugin(autoformatOptions),
         createSelectOnBackspacePlugin(selectOnBackspaceOptions),
         //  createDndPlugin({ options: { enableScroller: true } }),
+
+        // custom
+        createFontFamilyPlugin(fontFamilyOptions),
 ],
     {
         components: plateUI,

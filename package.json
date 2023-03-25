@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "PORT=3000 vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
@@ -23,6 +23,7 @@
     "slate-hyperscript": "^0.77.0",
     "slate-react": "^0.92.0",
     "styled-components": "^5.3.9",
+    "uuid": "^9.0.0",
     "zustand": "^4.3.6"
   },
   "devDependencies": {

@@ -1,0 +1,138 @@
+
+.settings {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #333;
+  box-shadow: 5px 5px 5px 5px #222;
+  border-radius: 1mm;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+  transition: ease-in-out .25s;
+  width: 50vw; 
+  height: 50vh; 
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.enabled {
+    background-color: var(--enabled-color);
+}
+.enabled:hover {
+    background-color: var(--enabled-color);
+}
+.multiple-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.multiple-item > span {
+    margin-right: 1rem;
+}
+.multiple-item > input {
+    width: 100%;
+}
+.multiple-item > button {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    background-color: #333;
+    color: #ccc;
+    border: none;
+    border-radius: 1mm;
+    width: 40px;
+    height: 40px;
+    padding: 0 0 0 0;
+    transition: ease-in-out .25s;
+}
+.multiple-item > button:hover {
+    background-color: #333;
+}
+.multiple-item > button:disabled {
+    background-color: #333;
+    color: #444;
+}
+
+.multiple-item > button:disabled:hover {
+    background-color: #333;
+    color: #aaa;
+}
+li {
+    list-style-type: none;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 1mm;
+    background-color: #222;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    transition: ease-in-out .5s;
+}
+
+li:hover {
+    background-color: #444;
+    box-shadow: 1px 1px 1px 1px #333;
+}
+
+li:active {
+    background-color: #666;
+    box-shadow: 5px 5px 5px 5px #222;
+}
+
+li:disabled {
+    background-color: #444;
+    box-shadow: 5px 5px 5px 5px #222;
+}
+
+li:disabled:hover {
+    background-color: #444;
+    box-shadow: 5px 5px 5px 5px #222;
+}
+
+li:disabled:active {
+    background-color: #444;
+    box-shadow: 5px 5px 5px 5px #222;
+}
+
+li:disabled:focus {
+    background-color: #444;
+    box-shadow: 5px 5px 5px 5px #222;
+}
+
+li:focus {
+    background-color: #444;
+    box-shadow: 5px 5px 5px 5px #222;
+}
+
+li:focus:hover {
+    background-color: #444;
+    box-shadow: 5px 5px 5px 5px #222;
+}
+
+li:focus:active {
+    background-color: #444;
+    box-shadow: 5px 5px 5px 5px #222;
+}
+
+li:focus:disabled {
+    background-color: #444;
+    box-shadow: 5px 5px 5px 5px #222;
+}
+
+li:focus:disabled:hover {
+    background-color: #444;
+    box-shadow: 5px 5px 5px 5px #222;
+}
+
+li:focus:disabled:active {
+    background-color: #444;
+    box-shadow: 5px 5px 5px 5px #222;
+}
+
+li:focus:disabled:focus {
+    background-color: #444;
+    box-shadow: 5px 5px 5px 5px #222;
+}
