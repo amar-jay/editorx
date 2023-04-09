@@ -25,7 +25,7 @@ import {initialValue} from '../common/initial';
 
 // -- types --
 type Theme = (typeof options.theme)[number];
-type Language = (typeof options.language)[number];
+//type Language = (typeof options.language)[number];
 type DND = boolean;
 type Bubble = boolean;
 type Comment = boolean;
@@ -58,7 +58,7 @@ type Shortcuts = {
 
 export const options = {
     theme: ['dark', 'light'],
-    language: ['en', 'tr', 'fr'],
+ //   language: ['en', 'tr', 'fr'],
     fontFamily: ['sans-serif', 'serif', 'monospace'],
     fontTextAlign: [
         'left',
@@ -73,27 +73,27 @@ export interface EditorState {
     bubble: Bubble;
     comments: Comment;
     toolbar: Toolbar;
-    language: Language;
+//    language: Language;
     session: Session;
     fontSize: FontSize;
     fontFamily: FontFamily;
     fontTextAlign: FontTextAlign;
     settheme: (isDark: Theme) => void;
-    toggleDND: (isDND: DND) => void;
+//    toggleDND: (isDND: DND) => void;
     togglebubble: (isbubble: Bubble) => void;
     togglecomments: (iscomments: Bubble) => void;
     toggletoolbar: (istoolbar: Toolbar) => void;
 
-    setlanguage: (language: Language) => void;
+//    setlanguage: (language: Language) => void;
     setsession: (session: Session) => void;
     setfontSize: (fontSize: FontSize) => void;
     setfontFamily: (fontFamily: FontFamily) => void;
     setfontTextAlign: (fontTextAlign: FontTextAlign) => void;
 }
 
-export const useStore = create<EditorState>((set) => ({
+export const useStore = create<EditorState>()(persist((set) => ({
     theme: 'light',
-    language: 'en',
+//    language: 'en',
     bubble: false,
     toolbar: true,
     comments: false,
@@ -101,10 +101,10 @@ export const useStore = create<EditorState>((set) => ({
     DND: false,
     fontSize: 16,
     fontFamily: 'sans-serif',
-    fontTextAlign: 'left',
+    fontTextAlign: 'center',
 //    settheme: (theme) => set({ theme: theme!=="dark" ? 'dark': 'light' }),
     settheme: (theme) => set({ theme }),
-    toggleDND: (dnd) => set({ DND: !dnd }),
+//    toggleDND: (dnd) => set({ DND: !dnd }),
     togglebubble: (isbubble) => {
         set({ bubble: !isbubble });
     },
@@ -114,11 +114,14 @@ export const useStore = create<EditorState>((set) => ({
     toggletoolbar: (istoolbar) => {
         set({ toolbar: !istoolbar });
     },
-    setlanguage: (language) => set({ language }),
+    // setlanguage: (language) => set({ language }),
     setsession: (session) => set({ session }),
     setfontSize: (fontSize) => set({ fontSize }),
     setfontTextAlign: (fontTextAlign) => set({ fontTextAlign }),
     setfontFamily: (fontFamily) => set({ fontFamily }),
+}),
+{
+    name: "editor-settings",
 }));
 
 interface PersistedEditorState {
