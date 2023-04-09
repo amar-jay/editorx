@@ -33,6 +33,7 @@ type Toolbar = boolean;
 type Session = string | null;
 type FontSize = number;
 type FontFamily = (typeof options.fontFamily)[number];
+type FontTextAlign = (typeof options.fontTextAlign)[number];
 type ImageStorage = null | string[];
 type TextStorage = string;
 type Shortcuts = {
@@ -59,6 +60,11 @@ export const options = {
     theme: ['dark', 'light'],
     language: ['en', 'tr', 'fr'],
     fontFamily: ['sans-serif', 'serif', 'monospace'],
+    fontTextAlign: [
+        'left',
+        'right',
+        'center'
+    ]
 } as const
 
 export interface EditorState {
@@ -71,6 +77,7 @@ export interface EditorState {
     session: Session;
     fontSize: FontSize;
     fontFamily: FontFamily;
+    fontTextAlign: FontTextAlign;
     settheme: (isDark: Theme) => void;
     toggleDND: (isDND: DND) => void;
     togglebubble: (isbubble: Bubble) => void;
@@ -81,6 +88,7 @@ export interface EditorState {
     setsession: (session: Session) => void;
     setfontSize: (fontSize: FontSize) => void;
     setfontFamily: (fontFamily: FontFamily) => void;
+    setfontTextAlign: (fontTextAlign: FontTextAlign) => void;
 }
 
 export const useStore = create<EditorState>((set) => ({
@@ -93,6 +101,7 @@ export const useStore = create<EditorState>((set) => ({
     DND: false,
     fontSize: 16,
     fontFamily: 'sans-serif',
+    fontTextAlign: 'left',
 //    settheme: (theme) => set({ theme: theme!=="dark" ? 'dark': 'light' }),
     settheme: (theme) => set({ theme }),
     toggleDND: (dnd) => set({ DND: !dnd }),
@@ -108,6 +117,7 @@ export const useStore = create<EditorState>((set) => ({
     setlanguage: (language) => set({ language }),
     setsession: (session) => set({ session }),
     setfontSize: (fontSize) => set({ fontSize }),
+    setfontTextAlign: (fontTextAlign) => set({ fontTextAlign }),
     setfontFamily: (fontFamily) => set({ fontFamily }),
 }));
 

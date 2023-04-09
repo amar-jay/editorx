@@ -2,7 +2,7 @@ import React from 'react';
 import { EditorState, options, useStore } from './store';
  import { shallow } from 'zustand/shallow';
 //import { EditorState } from './store';
-import styles from './Settings.css';
+import styles from './Settings.module.css';
 
 // this is the settings component, it should hover over the editor and allow the user to change the settings
 // for the editor, such as the theme, font, etc.
@@ -16,7 +16,7 @@ export const Settings:React.FC<{toggleSettings: ()=>void}> = ({toggleSettings}) 
             <span 
             onClick={toggleSettings}
             style={{fontSize: '16px', cursor: 'pointer', textDecoration: 'underline', fontWeight: '500', marginLeft: '10vw', position: 'absolute', top: 50, right: 50}}>close</span>
-            <ul className={styles['settings-list']>
+            <ul className={styles['settings-list']}>
                 {/* <li className={state.theme==='dark' ? 'enabled': ""}>Dark mode</li> */}
                 {
                     (Object.keys(state) as any[]).map((key: keyof typeof state, idx) => {

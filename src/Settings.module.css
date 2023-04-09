@@ -1,10 +1,9 @@
-
 .settings {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #333;
+  background-color: #333339;
   box-shadow: 5px 5px 5px 5px #222;
   border-radius: 1mm;
   padding-top: 1rem;
@@ -12,18 +11,18 @@
   padding-right: 1rem;
   padding-bottom: 1rem;
   transition: ease-in-out .25s;
-  width: 70vw; 
+  width: 50vw; 
   height: 70vh; 
   overflow-y: auto;
   overflow-x: hidden;
 }
 
-.enabled {
+.settings .enabled {
     padding-left: 5px;
     padding-right: 5px;
     background-color: var(--enabled-color);
 }
-.enabled:hover {
+.settings .enabled:hover {
     background-color: var(--enabled-color);
 }
 .multiple-item {
@@ -61,7 +60,7 @@
     background-color: #333;
     color: #aaa;
 }
-li {
+.settings li {
     list-style-type: none;
     padding: 1rem;
     margin: 1rem;
@@ -69,72 +68,72 @@ li {
     background-color: #222;
     color: #fff;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 500;
     transition: ease-in-out .5s;
 }
 
-li:hover {
+.settings li:hover {
     background-color: #444;
     box-shadow: 1px 1px 1px 1px #333;
 }
 
-li:active {
+.settings li:active {
     background-color: #666;
     box-shadow: 5px 5px 5px 5px #222;
 }
 
-li:disabled {
+.settings li:disabled {
     background-color: #444;
     box-shadow: 5px 5px 5px 5px #222;
 }
 
-li:disabled:hover {
+.settings li:disabled:hover {
     background-color: #444;
     box-shadow: 5px 5px 5px 5px #222;
 }
 
-li:disabled:active {
+.settings li:disabled:active {
     background-color: #444;
     box-shadow: 5px 5px 5px 5px #222;
 }
 
-li:disabled:focus {
+.settings li:disabled:focus {
     background-color: #444;
     box-shadow: 5px 5px 5px 5px #222;
 }
 
-li:focus {
+.settings li:focus {
     background-color: #444;
     box-shadow: 5px 5px 5px 5px #222;
 }
 
-li:focus:hover {
+.settings li:focus:hover {
     background-color: #444;
     box-shadow: 5px 5px 5px 5px #222;
 }
 
-li:focus:active {
+.settings li:focus:active {
     background-color: #444;
     box-shadow: 5px 5px 5px 5px #222;
 }
 
-li:focus:disabled {
+.settings li:focus:disabled {
     background-color: #444;
     box-shadow: 5px 5px 5px 5px #222;
 }
 
-li:focus:disabled:hover {
+.settings li:focus:disabled:hover {
     background-color: #444;
     box-shadow: 5px 5px 5px 5px #222;
 }
 
-li:focus:disabled:active {
+.settings li:focus:disabled:active {
     background-color: #444;
     box-shadow: 5px 5px 5px 5px #222;
 }
 
-li:focus:disabled:focus {
+.settings li:focus:disabled:focus {
     background-color: #444;
     box-shadow: 5px 5px 5px 5px #222;
 }

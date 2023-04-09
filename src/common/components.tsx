@@ -23,7 +23,7 @@ export const components = {
       root: {
         margin: '1rem 0',
 //        textDecoration: 'underline',
-        fontFamily: 'monospace',
+//       fontFamily: 'monospace',
         fontSize: '1.875em',
         fontWeight: '500',
         lineHeight: '1.3',
@@ -34,7 +34,7 @@ export const components = {
   [ELEMENT_H2]: withProps(StyledElement, {
     styles: {
       root: {
-        fontFamily: 'monospace',
+//       fontFamily: 'monospace',
         margin: '1rem 0',
         textDecoration: 'underline',
         fontSize: '1.3em',
@@ -47,7 +47,7 @@ export const components = {
     // as: 'p',
     styles: {
       root: {
-        fontFamily: 'monospace',
+//       fontFamily: 'monospace',
         placeholder: 'Enter text here',
         margin: 0,
         padding: '4px 0',

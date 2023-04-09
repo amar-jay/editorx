@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Anuphan&family=Kanit&family=M+PLUS+Rounded+1c:wght@500&display=swap');
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Anuphan, Intel, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
   line-height: 1.5;
   font-weight: 400;
 
@@ -18,6 +21,30 @@
   --button-hover-color: #333;
 }
 
+.font-serif {
+    font-family: Anuphan, sans-serif;
+}
+
+.font-sans-serif {
+    font-family: 'Kanit', sans-serif;
+}
+
+.font-monospace {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+/* Text align*/
+.font-right {
+    text-align: right !important;
+}
+
+.font-center {
+    text-align: center !important;
+}
+
+.font-left {
+    text-align: left !important;
+}
 
 body {
   margin: 0;

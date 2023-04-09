@@ -26,10 +26,11 @@ function App() {
       ]);
 
   // settings config store
-  const [bubble, toolbar, comments] = useStore(state => [state.bubble, state.toolbar, state.comments]);
+  const [bubble, toolbar, comments, fontFamily, fontTextAlign] = useStore(state => [state.bubble, state.toolbar, state.comments, state.fontFamily, state.fontTextAlign]);
   const [showSettings, setShowSettings] = useState(false);
-  const [val, setVal] = useState("");
+//  const [val, setVal] = useState(""); //  to meaure state  temporarily
    const editor = useMyPlateEditorRef();
+   const setFont = (x: string) => 'font-' + x; 
 
   const toggleSettings = () => {
       setShowSettings(!showSettings);
@@ -41,13 +42,15 @@ function App() {
           JSON.parse(textValue) as Value
         }
          onChange={(val:Value) => {
-          setVal(JSON.stringify(val))
+         // setVal(JSON.stringify(val))
           setTextValue(JSON.stringify(val))
         }}
     >
-    <div className="body">
-      <h1>Editor</h1>
-      <span style={{ position: 'absolute', top: '35px', right: '10px', marginLeft: '10vw', textDecoration:'underline'}} onClick={toggleSettings}> Settings </span>
+    <div className="body font-center">
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between'}} >
+          <h1>Editor</h1>
+          <span style={{ marginLeft: '10vw', textDecoration:'underline'}} onClick={toggleSettings}> Settings </span>
+      </div>
       {
         toolbar && (
       <div className="icons">
@@ -77,7 +80,11 @@ function App() {
 
       </div>
         )}
-    <div className="editor">
+
+          {
+            bubble && <MarkBalloonToolbar displayComments={comments}/>
+          }
+    <div className={"editor "+ setFont(fontFamily) + setFont(fontTextAlign)}>
       <Plate 
          editableProps={editableProps} 
          // resolve issue of JSON.parse error
@@ -86,9 +93,6 @@ function App() {
          plugins={plugins}
 
         >
-          {
-            bubble && <MarkBalloonToolbar displayComments={comments}/>
-          }
           </Plate>
     </div>
     {
