@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Anuphan&family=Kanit&family=M+PLUS+Rounded+1c:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anuphan&family=Kanit&family=M+PLUS+Rounded+1c&display=swap');
 
 :root {
   font-family: Anuphan, Intel, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -30,7 +30,7 @@
 }
 
 .font-monospace {
-    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-family: monospace, 'M PLUS Rounded 1c', monospace, sans-serif;
 }
 
 /* Text align*/

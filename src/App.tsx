@@ -72,11 +72,11 @@ function App() {
           icon={<h1 style={tooltipStyle.underline}>U</h1>}
         />
 
-        <MarkToolbarButton
+        {/* <MarkToolbarButton
 //          tooltip={{content:'Bold (⌘+B)'}}
           type={getPluginType(editor, MARK_STRIKETHROUGH)}
           icon={<h1 style={tooltipStyle.strikethrough}>S</h1>}
-        />
+        /> */}
 
       </div>
         )}
@@ -84,7 +84,7 @@ function App() {
           {
             bubble && <MarkBalloonToolbar displayComments={comments}/>
           }
-    <div className={"editor "+ setFont(fontFamily) + setFont(fontTextAlign)}>
+    <div className={"editor "+ setFont(fontFamily) + " " + setFont(fontTextAlign)}>
       <Plate 
          editableProps={editableProps} 
          // resolve issue of JSON.parse error
